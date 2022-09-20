@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class Maquinaria extends javax.swing.JFrame {
-    //Creando la Coleccion de Equipos
+  
     MongoCollection<Document> Maquinaria;
 
     //Creando el modelo de la tabla
@@ -23,7 +23,7 @@ public class Maquinaria extends javax.swing.JFrame {
      */
     public Maquinaria() {
         initComponents();
-    //Definiendo la coleccion equipos
+
         this.Maquinaria = main.connMongo.getDB().getCollection("Maquinaria");
 
     //Definiendo la estructura de la tabla
@@ -159,16 +159,13 @@ public class Maquinaria extends javax.swing.JFrame {
                                 .addGap(23, 23, 23)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(122, 122, 122)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(79, 79, 79)
                                 .addComponent(btnModificar)
                                 .addGap(80, 80, 80)
-                                .addComponent(btnEliminar)))
+                                .addComponent(btnEliminar))
+                            .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMarca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE))
                 .addContainerGap())
@@ -233,8 +230,8 @@ public class Maquinaria extends javax.swing.JFrame {
            }
 
            Document datosObj = new Document("nombre",this.txtID.getText())
-            .append("sede",this.txtMarca.getText())
-            .append("fundacion", Integer.parseInt(this.txtModelo.getText()));
+            .append("Modelo",this.txtModelo.getText())
+            .append("Marca", Integer.parseInt(this.txtMarca.getText()));
            
            JOptionPane.showMessageDialog(null, main.connMongo.actualizarDocuments(this.Maquinaria,datosObj,dataTabla[0])?"Registro Actualizado con exito":"Registro no pudo ser actualizado");
           

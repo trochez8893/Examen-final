@@ -2,9 +2,9 @@
 
 package com.mycompany.examen2;
 
-//Importacion necesaria para crear la conexion a la Base de datos de Mongo, tambien para obtener la BD seleccionada, colleciones y otros.
+
 import com.mongodb.client.*;
-//Manejar las excepciones del Try Catch de MongoDB
+
 import com.mongodb.MongoException;
 
 import com.mongodb.client.result.*;
